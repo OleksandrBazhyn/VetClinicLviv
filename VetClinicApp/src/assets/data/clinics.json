@@ -1,0 +1,247 @@
+{
+  "clinics": [
+    {
+      "id": 1,
+      "name": "Ветеринарна клініка «Айболить»",
+      "address": "вул. Сахарова, 42, Львів",
+      "district": "Личаківський",
+      "latitude": 49.8397,
+      "longitude": 24.0297,
+      "phone": "+380971234567",
+      "website": "https://aibolit.lviv.ua",
+      "is_24_7": true,
+      "rating": 4.7,
+      "review_count": 128,
+      "description": "Клініка повного циклу, цілодобово. УЗД, рентген, операційна.",
+      "services": [
+        { "name": "Первинний огляд", "price": 200, "category": "therapy" },
+        { "name": "УЗД", "price": 450, "category": "diagnostics" },
+        { "name": "Рентген", "price": 350, "category": "diagnostics" },
+        { "name": "Хірургія", "price": 1500, "category": "surgery" },
+        { "name": "Вакцинація", "price": 300, "category": "therapy" }
+      ],
+      "working_hours": [
+        { "day": "Пн–Нд", "time": "Цілодобово" }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "VetCity Львів",
+      "address": "пр. Свободи, 15, Львів",
+      "district": "Галицький",
+      "latitude": 49.8439,
+      "longitude": 24.0260,
+      "phone": "+380632345678",
+      "website": "",
+      "is_24_7": false,
+      "rating": 4.5,
+      "review_count": 87,
+      "description": "Сучасна ветеринарна клініка у центрі міста.",
+      "services": [
+        { "name": "Консультація", "price": 180, "category": "therapy" },
+        { "name": "Грумінг", "price": 500, "category": "grooming" },
+        { "name": "Аналізи крові", "price": 250, "category": "diagnostics" },
+        { "name": "Стерилізація", "price": 1200, "category": "surgery" }
+      ],
+      "working_hours": [
+        { "day": "Пн–Пт", "time": "09:00–19:00" },
+        { "day": "Сб", "time": "10:00–16:00" },
+        { "day": "Нд", "time": "Вихідний" }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Зоовет Плюс",
+      "address": "вул. Городоцька, 110, Львів",
+      "district": "Залізничний",
+      "latitude": 49.8370,
+      "longitude": 23.9950,
+      "phone": "+380503456789",
+      "website": "",
+      "is_24_7": false,
+      "rating": 4.2,
+      "review_count": 54,
+      "description": "Клініка для малих тварин. Щеплення, чіпування, зняття зубного каменю.",
+      "services": [
+        { "name": "Огляд", "price": 150, "category": "therapy" },
+        { "name": "Чіпування", "price": 400, "category": "therapy" },
+        { "name": "Зняття зубного каменю", "price": 600, "category": "surgery" },
+        { "name": "Грумінг кішок", "price": 350, "category": "grooming" }
+      ],
+      "working_hours": [
+        { "day": "Пн–Пт", "time": "10:00–18:00" },
+        { "day": "Сб", "time": "10:00–14:00" },
+        { "day": "Нд", "time": "Вихідний" }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Клініка «Добрий Лікар»",
+      "address": "вул. Наукова, 7а, Львів",
+      "district": "Франківський",
+      "latitude": 49.8195,
+      "longitude": 24.0080,
+      "phone": "+380674567890",
+      "website": "https://dobriy-likar.lviv.ua",
+      "is_24_7": true,
+      "rating": 4.8,
+      "review_count": 203,
+      "description": "Провідна ветеринарна клініка Львова. МРТ, ендоскопія, кардіологія.",
+      "services": [
+        { "name": "Консультація кардіолога", "price": 400, "category": "therapy" },
+        { "name": "ЕКГ", "price": 300, "category": "diagnostics" },
+        { "name": "Ендоскопія", "price": 800, "category": "diagnostics" },
+        { "name": "Ортопедична хірургія", "price": 3000, "category": "surgery" }
+      ],
+      "working_hours": [
+        { "day": "Пн–Нд", "time": "Цілодобово" }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Ветпомощь на Сихові",
+      "address": "вул. Сихівська, 23, Львів",
+      "district": "Сихівський",
+      "latitude": 49.7983,
+      "longitude": 24.0354,
+      "phone": "+380965678901",
+      "website": "",
+      "is_24_7": false,
+      "rating": 4.0,
+      "review_count": 41,
+      "description": "Районна ветеринарна клініка для вашого улюбленця.",
+      "services": [
+        { "name": "Огляд", "price": 120, "category": "therapy" },
+        { "name": "Вакцинація", "price": 250, "category": "therapy" },
+        { "name": "Аналізи", "price": 200, "category": "diagnostics" }
+      ],
+      "working_hours": [
+        { "day": "Пн–Пт", "time": "09:00–17:00" },
+        { "day": "Сб–Нд", "time": "Вихідний" }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Шевченківський ветцентр",
+      "address": "вул. Шевченка, 48, Львів",
+      "district": "Шевченківський",
+      "latitude": 49.8530,
+      "longitude": 24.0180,
+      "phone": "+380736789012",
+      "website": "",
+      "is_24_7": false,
+      "rating": 4.3,
+      "review_count": 67,
+      "description": "Широкий спектр послуг для собак та кішок.",
+      "services": [
+        { "name": "Огляд", "price": 160, "category": "therapy" },
+        { "name": "Дерматологія", "price": 300, "category": "therapy" },
+        { "name": "УЗД", "price": 400, "category": "diagnostics" },
+        { "name": "Стерилізація котів", "price": 900, "category": "surgery" },
+        { "name": "Грумінг собак", "price": 600, "category": "grooming" }
+      ],
+      "working_hours": [
+        { "day": "Пн–Пт", "time": "09:00–20:00" },
+        { "day": "Сб", "time": "09:00–15:00" },
+        { "day": "Нд", "time": "Вихідний" }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Vet Express 24",
+      "address": "вул. Кульпарківська, 58, Львів",
+      "district": "Залізничний",
+      "latitude": 49.8250,
+      "longitude": 23.9880,
+      "phone": "+380677890123",
+      "website": "https://vetexpress.lviv.ua",
+      "is_24_7": true,
+      "rating": 4.6,
+      "review_count": 155,
+      "description": "Цілодобова ветеринарна допомога, виїзд додому.",
+      "services": [
+        { "name": "Виїзний огляд", "price": 500, "category": "therapy" },
+        { "name": "Крапельниця вдома", "price": 400, "category": "therapy" },
+        { "name": "Ін'єкції", "price": 100, "category": "therapy" },
+        { "name": "Евтаназія", "price": 800, "category": "other" }
+      ],
+      "working_hours": [
+        { "day": "Пн–Нд", "time": "Цілодобово" }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "ZooHealth Clinic",
+      "address": "вул. Під Голоском, 12, Львів",
+      "district": "Шевченківський",
+      "latitude": 49.8610,
+      "longitude": 24.0120,
+      "phone": "+380508901234",
+      "website": "",
+      "is_24_7": false,
+      "rating": 3.9,
+      "review_count": 32,
+      "description": "Невелика клініка з прийомом за записом.",
+      "services": [
+        { "name": "Первинний огляд", "price": 140, "category": "therapy" },
+        { "name": "Чіпування", "price": 380, "category": "therapy" },
+        { "name": "Аналіз сечі", "price": 180, "category": "diagnostics" }
+      ],
+      "working_hours": [
+        { "day": "Пн–Пт", "time": "10:00–19:00" },
+        { "day": "Сб", "time": "11:00–15:00" },
+        { "day": "Нд", "time": "Вихідний" }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Галицька ветклініка",
+      "address": "вул. Галицька, 3, Львів",
+      "district": "Галицький",
+      "latitude": 49.8420,
+      "longitude": 24.0310,
+      "phone": "+380639012345",
+      "website": "",
+      "is_24_7": false,
+      "rating": 4.4,
+      "review_count": 91,
+      "description": "Досвідчена команда ветеринарів у серці міста.",
+      "services": [
+        { "name": "Огляд", "price": 170, "category": "therapy" },
+        { "name": "Рентген", "price": 320, "category": "diagnostics" },
+        { "name": "Видалення кіст", "price": 1100, "category": "surgery" },
+        { "name": "Грумінг", "price": 450, "category": "grooming" }
+      ],
+      "working_hours": [
+        { "day": "Пн–Пт", "time": "09:00–18:00" },
+        { "day": "Сб", "time": "10:00–15:00" },
+        { "day": "Нд", "time": "Вихідний" }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Франківська ветеринарія",
+      "address": "вул. Франка, 89, Львів",
+      "district": "Франківський",
+      "latitude": 49.8310,
+      "longitude": 24.0150,
+      "phone": "+380730123456",
+      "website": "",
+      "is_24_7": false,
+      "rating": 4.1,
+      "review_count": 58,
+      "description": "Якісна допомога вашим улюбленцям. Прийом без запису.",
+      "services": [
+        { "name": "Огляд", "price": 130, "category": "therapy" },
+        { "name": "Вакцинація", "price": 270, "category": "therapy" },
+        { "name": "УЗД черевної порожнини", "price": 420, "category": "diagnostics" },
+        { "name": "Кастрація котів", "price": 700, "category": "surgery" }
+      ],
+      "working_hours": [
+        { "day": "Пн–Пт", "time": "09:00–18:00" },
+        { "day": "Сб", "time": "09:00–13:00" },
+        { "day": "Нд", "time": "Вихідний" }
+      ]
+    }
+  ]
+}
