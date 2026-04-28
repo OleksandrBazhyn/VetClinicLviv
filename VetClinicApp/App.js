@@ -17,6 +17,7 @@ import AuthScreen from './src/screens/AuthScreen';
 import EmergencyScreen from './src/screens/EmergencyScreen';
 import AdminScreen from './src/screens/AdminScreen';
 import AdminClinicFormScreen from './src/screens/AdminClinicFormScreen';
+import FavoritesScreen from './src/screens/FavoritesScreen';
 
 import { COLORS } from './src/constants';
 
@@ -62,6 +63,7 @@ function ProfileStack({ user, setUser }) {
       <Stack.Screen name="Emergency" options={{ title: '🚨 Екстрений виклик' }}>
         {(props) => <EmergencyScreen {...props} user={user} />}
       </Stack.Screen>
+      <Stack.Screen name="Favorites" component={FavoritesScreen} options={{ title: '📁 Файли та улюблені' }} />
       <Stack.Screen name="Admin" component={AdminScreen} options={{ title: '👑 Адмін-панель' }} />
       <Stack.Screen
         name="AdminClinicForm"

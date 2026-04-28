@@ -112,27 +112,54 @@ export async function getClinicsStats() {
   const byDistrict = await db.getAllAsync(
     `SELECT district, COUNT(*) as count FROM clinics GROUP BY district ORDER BY count DESC`
   );
+
   const availability = await db.getAllAsync(
     `SELECT is_24_7, COUNT(*) as count FROM clinics GROUP BY is_24_7`
   );
+
   const ratingGroups = await db.getAllAsync(
     `SELECT
        CASE
-         WHEN rating >= 4.5 THEN '4.5–5.0'
+         WHEN rating >= 4.5 THEN '4.5–5'
          WHEN rating >= 4.0 THEN '4.0–4.5'
          WHEN rating >= 3.5 THEN '3.5–4.0'
-         ELSE '< 3.5'
+         ELSE 'до 3.5'
        END as group_label,
        COUNT(*) as count
      FROM clinics
      GROUP BY group_label
-     ORDER BY group_label DESC`
+     ORDER BY MIN(rating) DESC`
+  );
+
+  const byServiceCategory = await db.getAllAsync(
+    `SELECT category, COUNT(*) as count
+     FROM services
+     GROUP BY category
+     ORDER BY count DESC`
+  );
+
+  const topRated = await db.getAllAsync(
+    `SELECT id, name, rating, review_count, district
+     FROM clinics
+     ORDER BY rating DESC, review_count DESC
+     LIMIT 5`
+  );
+
+  const aggregates = await db.getFirstAsync(
+    `SELECT
+       ROUND(AVG(rating), 1) as avgRating,
+       SUM(review_count) as totalReviews,
+       COUNT(*) as totalClinics
+     FROM clinics`
   );
 
   return {
     byDistrict,
     availability: availability.map(item => ({ ...item, is_24_7: toBoolean(item.is_24_7) })),
     ratingGroups,
+    byServiceCategory,
+    topRated: topRated.map(normalizeClinic),
+    aggregates,
   };
 }
 

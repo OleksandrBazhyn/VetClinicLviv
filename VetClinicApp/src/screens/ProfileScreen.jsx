@@ -4,7 +4,7 @@ import {
   TextInput, Alert, FlatList, Modal,
 } from 'react-native';
 import { logout, updateProfile, activateSubscription } from '../db/authService';
-import { readFavorites, removeFavorite } from '../services/fileService';
+import { readFavorites } from '../services/fileService';
 import { getUserEmergencyCalls } from '../services/emergencyService';
 import { COLORS } from '../constants';
 
@@ -62,11 +62,6 @@ export default function ProfileScreen({ user, setUser, navigation, route }) {
         },
       ]
     );
-  }
-
-  async function handleRemoveFavorite(clinicId) {
-    await removeFavorite(clinicId);
-    loadFavorites();
   }
 
   async function handleLogout() {
@@ -137,22 +132,21 @@ export default function ProfileScreen({ user, setUser, navigation, route }) {
         )}
       </View>
 
-      {/* Збережені клініки */}
-      <Text style={styles.sectionTitle}>❤️ Збережені клініки ({favorites.length})</Text>
-      {favorites.length === 0 && (
-        <Text style={styles.emptyText}>Немає збережених клінік</Text>
-      )}
-      {favorites.map(fav => (
-        <View key={fav.id} style={styles.favItem}>
-          <View style={{ flex: 1 }}>
-            <Text style={styles.favName}>{fav.name}</Text>
-            <Text style={styles.favAddr}>{fav.address}</Text>
-          </View>
-          <TouchableOpacity onPress={() => handleRemoveFavorite(fav.id)}>
-            <Text style={{ color: COLORS.danger, fontSize: 18 }}>✕</Text>
-          </TouchableOpacity>
+      {/* Файли та улюблені */}
+      <TouchableOpacity
+        style={styles.filesBtn}
+        onPress={() => navigation.navigate('Favorites')}
+      >
+        <View style={{ flex: 1 }}>
+          <Text style={styles.filesBtnTitle}>📁 Файли та улюблені</Text>
+          <Text style={styles.filesBtnSub}>
+            {favorites.length > 0
+              ? `${favorites.length} збережених клінік · favorites.json`
+              : 'Переглянути файли та зберегти клініки'}
+          </Text>
         </View>
-      ))}
+        <Text style={styles.filesArrow}>›</Text>
+      </TouchableOpacity>
 
       {/* Екстрений виклик */}
       {user.subscription_active && (
@@ -223,6 +217,15 @@ const styles = StyleSheet.create({
   favItem: { flexDirection: 'row', alignItems: 'center', marginHorizontal: 16, marginBottom: 8, backgroundColor: COLORS.card, borderRadius: 10, padding: 12, elevation: 1 },
   favName: { fontSize: 14, fontWeight: '600', color: COLORS.text },
   favAddr: { fontSize: 12, color: COLORS.textSecondary },
+  filesBtn: {
+    marginHorizontal: 16, marginBottom: 12, backgroundColor: COLORS.card,
+    borderRadius: 12, padding: 14, flexDirection: 'row', alignItems: 'center',
+    elevation: 2,
+    shadowColor: '#000', shadowOffset: { width: 0, height: 1 }, shadowOpacity: 0.06, shadowRadius: 3,
+  },
+  filesBtnTitle: { fontSize: 15, fontWeight: '700', color: COLORS.text },
+  filesBtnSub: { fontSize: 12, color: COLORS.textSecondary, marginTop: 2 },
+  filesArrow: { fontSize: 22, color: COLORS.textSecondary },
   emergencyBtn: { marginHorizontal: 16, backgroundColor: COLORS.danger, borderRadius: 12, paddingVertical: 14, alignItems: 'center', marginTop: 8, marginBottom: 8 },
   emergencyBtnText: { color: '#fff', fontSize: 16, fontWeight: '800' },
   callItem: { marginHorizontal: 16, marginBottom: 8, backgroundColor: COLORS.card, borderRadius: 10, padding: 12, elevation: 1 },

@@ -1,6 +1,8 @@
 import * as FileSystem from 'expo-file-system';
 
 const FAVORITES_FILE = FileSystem.documentDirectory + 'favorites.json';
+export const FAVORITES_FILE_PATH = FAVORITES_FILE;
+export const EXPORT_FILE_PATH    = FileSystem.documentDirectory + 'clinics_export.json';
 
 export async function readFavorites() {
   try {
@@ -34,7 +36,6 @@ export async function isFavorite(clinicId) {
 }
 
 export async function exportClinicsToFile(clinics) {
-  const filePath = FileSystem.documentDirectory + 'clinics_export.json';
   const data = clinics.map(c => ({
     id: c.id,
     name: c.name,
@@ -44,6 +45,35 @@ export async function exportClinicsToFile(clinics) {
     is_24_7: !!c.is_24_7,
     rating: c.rating,
   }));
-  await FileSystem.writeAsStringAsync(filePath, JSON.stringify({ exported_at: new Date().toISOString(), clinics: data }, null, 2));
-  return filePath;
+  const content = JSON.stringify({ exported_at: new Date().toISOString(), clinics: data }, null, 2);
+  await FileSystem.writeAsStringAsync(EXPORT_FILE_PATH, content);
+  return EXPORT_FILE_PATH;
+}
+
+export async function clearFavorites() {
+  await FileSystem.writeAsStringAsync(FAVORITES_FILE, JSON.stringify([]));
+}
+
+export async function getFileInfo(filePath) {
+  try {
+    const info = await FileSystem.getInfoAsync(filePath, { size: true, md5: false });
+    if (!info.exists) return null;
+    return {
+      exists: true,
+      size: info.size ?? 0,
+      uri: info.uri,
+    };
+  } catch {
+    return null;
+  }
+}
+
+export async function readRawFile(filePath) {
+  try {
+    const info = await FileSystem.getInfoAsync(filePath);
+    if (!info.exists) return null;
+    return await FileSystem.readAsStringAsync(filePath);
+  } catch {
+    return null;
+  }
 }
